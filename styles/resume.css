@@ -1,0 +1,265 @@
+.resume-page {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: var(--dark);
+  min-height: 100vh;
+}
+
+.resume-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.back-button,
+.print-button,
+.download-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 15px;
+  background: transparent;
+  color: var(--light);
+  border: 1px solid var(--primary);
+  border-radius: 4px;
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.back-button:hover,
+.print-button:hover,
+.download-button:hover {
+  background: rgba(0, 168, 255, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 168, 255, 0.2);
+}
+
+.resume-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.resume-wrapper {
+  background: var(--card-bg);
+  border: 1px solid rgba(0, 168, 255, 0.2);
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  transition: var(--transition);
+}
+
+/* Resume Component Styles */
+.resume-container {
+  color: var(--light);
+  font-family: "Rajdhani", sans-serif;
+  line-height: 1.6;
+  transition: var(--transition);
+}
+
+.resume-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--primary);
+  transition: var(--transition);
+}
+
+.resume-header h1 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: var(--primary);
+  transition: var(--transition);
+}
+
+.resume-section {
+  margin-bottom: 30px;
+  page-break-inside: avoid; /* Prevent section from breaking across pages */
+}
+
+.resume-section h2 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.5rem;
+  color: var(--secondary);
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(0, 255, 204, 0.3);
+  transition: var(--transition);
+}
+
+.resume-item {
+  margin-bottom: 20px;
+  page-break-inside: avoid; /* Prevent items from breaking across pages */
+}
+
+.resume-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.resume-item-header h3 {
+  font-size: 1.2rem;
+  color: var(--light);
+}
+
+.resume-date {
+  color: var(--primary);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.resume-institution {
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.resume-degree {
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.resume-list {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.resume-list li {
+  margin-bottom: 8px;
+}
+
+/* Add these styles for the theme toggle button in the resume page */
+.theme-toggle-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 15px;
+  background: transparent;
+  color: var(--light);
+  border: 1px solid var(--primary);
+  border-radius: 4px;
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.theme-toggle-button:hover {
+  background: rgba(0, 168, 255, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 168, 255, 0.2);
+}
+
+/* Light mode specific styles for resume */
+.light .resume-wrapper {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(0, 119, 204, 0.2);
+}
+
+.light .resume-container {
+  color: var(--light);
+}
+
+.light .resume-header {
+  border-bottom-color: var(--primary);
+}
+
+.light .resume-header h1 {
+  color: var(--primary);
+}
+
+.light .resume-section h2 {
+  color: var(--secondary);
+  border-bottom-color: rgba(0, 255, 204, 0.3);
+}
+
+.light .resume-date {
+  color: var(--primary);
+}
+
+.light-mode .resume-item-header h3,
+.light-mode .resume-institution,
+.light-mode .resume-degree,
+.light-mode .resume-list li,
+.light-mode .resume-section p {
+  color: rgba(17, 17, 17, 0.9);
+}
+
+/* Print styles */
+@media print {
+  .resume-actions {
+    display: none;
+  }
+
+  .resume-wrapper {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    background: white !important;
+    margin: 0 !important;
+  }
+
+  .resume-container {
+    color: #000 !important;
+  }
+
+  .resume-header h1 {
+    color: #000 !important;
+  }
+
+  .resume-section h2 {
+    color: #000 !important;
+    border-bottom-color: #ccc !important;
+  }
+
+  .resume-date {
+    color: #666 !important;
+  }
+
+  .resume-item-header h3 {
+    color: #000 !important;
+  }
+
+  body,
+  html {
+    background: white !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Fix for empty last page */
+  @page {
+    margin: 0.5cm;
+    size: auto;
+  }
+
+  .resume-section:last-child {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+}
+
+.printing * {
+  -webkit-print-color-adjust: exact !important;
+  color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}

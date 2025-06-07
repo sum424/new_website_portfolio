@@ -1,0 +1,345 @@
+.about-page h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 50px;
+  color: var(--light);
+  font-family: "Orbitron", sans-serif;
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+.about-page h2:after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 50%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.about-text p {
+  margin-bottom: 20px;
+  color: var(--light);
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Enhanced image placeholder */
+.image-placeholder {
+  width: 100%;
+  height: 300px;
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.image-placeholder::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(to bottom right, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: rotate(30deg);
+  animation: shimmer 3s infinite linear;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) rotate(30deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(30deg);
+  }
+}
+
+/* Resume button */
+.resume-actions-container {
+  display: flex;
+  gap: 15px;
+  margin: 25px 0;
+  position: relative;
+}
+
+.resume-view-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 25px;
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  border-radius: 4px;
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.resume-view-button:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 168, 255, 0.2), transparent);
+  transition: 0.5s;
+}
+
+.resume-view-button:hover {
+  box-shadow: 0 0 20px rgba(0, 168, 255, 0.5);
+  transform: translateY(-3px);
+}
+
+.resume-view-button:hover:before {
+  left: 100%;
+}
+
+/* Skills section */
+.skills {
+  margin-bottom: 60px;
+}
+
+.skills h3 {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  color: var(--light);
+  font-family: "Orbitron", sans-serif;
+  position: relative;
+  display: inline-block;
+}
+
+.skills h3:after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 50%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.skill-card {
+  background: var(--card-bg);
+  border-radius: 10px;
+  padding: 25px;
+  border: 1px solid rgba(0, 168, 255, 0.2);
+  transition: var(--transition);
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 168, 255, 0.2);
+  border-color: var(--primary);
+}
+
+.skill-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(0, 168, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  color: var(--primary);
+}
+
+.skill-card h4 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: var(--light);
+  font-family: "Orbitron", sans-serif;
+}
+
+.skill-bar {
+  height: 8px;
+  background: rgba(10, 25, 47, 0.8);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.skill-progress {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: 4px;
+  transition: width 1s ease-in-out;
+}
+
+.skill-percentage {
+  position: absolute;
+  right: 0;
+  top: -20px;
+  font-size: 0.8rem;
+  color: var(--secondary);
+}
+
+.skill-card p {
+  color: rgba(230, 241, 255, var(--text-opacity));
+  font-size: 0.9rem;
+}
+
+/* Experience and Education */
+.experience-education {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.experience-section h3,
+.education-section h3 {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  color: var(--light);
+  font-family: "Orbitron", sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-icon {
+  color: var(--primary);
+}
+
+.timeline {
+  position: relative;
+  padding-left: 20px;
+}
+
+.timeline:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--primary), transparent);
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 30px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -29px;
+  top: 10px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--primary);
+  border: 3px solid var(--dark);
+  box-shadow: 0 0 10px rgba(0, 168, 255, 0.5);
+}
+
+.timeline-content {
+  background: var(--card-bg);
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid rgba(0, 168, 255, 0.2);
+  transition: var(--transition);
+}
+
+.timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 168, 255, 0.2);
+  border-color: var(--primary);
+}
+
+.timeline-content h4 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: var(--light);
+  font-family: "Orbitron", sans-serif;
+}
+
+.timeline-company {
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: var(--light);
+}
+
+.timeline-period {
+  color: var(--primary);
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.timeline-degree {
+  font-style: italic;
+  color: var(--secondary);
+  margin-top: 5px;
+}
+
+.timeline-details {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+.timeline-details li {
+  margin-bottom: 5px;
+  color: rgba(230, 241, 255, var(--text-opacity));
+  font-size: 0.9rem;
+}
+
+/* Improve text visibility in light mode */
+.light-mode .about-text p {
+  color: rgba(17, 17, 17, 0.9);
+  font-weight: 500;
+}
+
+.light-mode .timeline-company,
+.light-mode .timeline-content h4,
+.light-mode .skills h3,
+.light-mode .skill-card h4,
+.light-mode .experience-section h3,
+.light-mode .education-section h3 {
+  color: rgba(17, 17, 17, 0.9);
+}
+
+@media (max-width: 1024px) {
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-education {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
