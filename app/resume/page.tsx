@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import React, { useState } from "react"
 import { motion } from "framer-motion"
 import { Printer, ArrowLeft, Moon, Sun } from "lucide-react"
 import Resume from "@/components/resume"
@@ -24,7 +24,7 @@ export default function ResumePage() {
     setTheme(theme === "dark" ? "light" : "dark")
   }
 
-  const handleBackClick = (e) => {
+  const handleBackClick = (e: React.SyntheticEvent) => {
     e.preventDefault()
     router.push("/#about")
   }
