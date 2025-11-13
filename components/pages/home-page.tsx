@@ -31,9 +31,9 @@ export default function HomePage({ navigateTo }: HomePageProps) {
         </motion.h1>
 
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.7 }}>
-          A creative Frontend Developer crafting immersive digital experiences with HTML, CSS, JavaScript, React, GSAP, PHP and Laravel. I blend
+          A creative Frontend Developer crafting immersive digital experiences with React, Three.js, and GSAP. I blend
           technical expertise with design sensibility to build interactive, visually stunning web applications that
-          engage users, deliver exceptional experiences and maximum performance.
+          engage users and deliver exceptional experiences.
         </motion.p>
 
         <motion.a

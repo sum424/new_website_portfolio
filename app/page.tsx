@@ -5,29 +5,28 @@ import { useTheme } from "@/components/theme-provider"
 import Header from "@/components/header"
 import CosmicBackground from "@/components/cosmic-background"
 import SocialLinks from "@/components/social-links"
-import HomePage from "@/components/home-page"
-import WorkPage from "@/components/work-page"
-import AboutPage from "@/components/about-page"
-import ContactPage from "@/components/contact-page"
-import ErrorPage from "@/components/error-page"
+import HomePage from "@/components/pages/home-page"
+import WorkPage from "@/components/pages/work-page"
+import AboutPage from "@/components/pages/about-page"
+import ContactPage from "@/components/pages/contact-page"
+import ErrorPage from "@/components/pages/error-page"
 import AIChatAssistant from "@/components/ai-chat-assistant"
 import { AnimatePresence, motion } from "framer-motion"
 import { ErrorBoundary } from "@/components/error-boundary"
-import { useRouter } from "next/navigation"
-import React from "react"
 
 export default function Portfolio() {
   const [currentPage, setCurrentPage] = useState("home")
   const [isLoading, setIsLoading] = useState(false)
   const { theme } = useTheme()
-  const router = useRouter()
 
   useEffect(() => {
+    // Get page from hash or default to home
     const hash = window.location.hash
     if (hash && hash.length > 1) {
       setCurrentPage(hash.substring(1))
     }
 
+    // Handle hash change events
     const handleHashChange = () => {
       const hash = window.location.hash
       if (hash && hash.length > 1) {
@@ -37,6 +36,7 @@ export default function Portfolio() {
       }
     }
 
+    // Handle popstate (back/forward navigation)
     const handlePopState = () => {
       const hash = window.location.hash
       if (hash && hash.length > 1) {
@@ -58,17 +58,14 @@ export default function Portfolio() {
   const navigateTo = (page: string) => {
     setIsLoading(true)
 
+    // Simulate loading delay
     setTimeout(() => {
       setCurrentPage(page)
       setIsLoading(false)
+
+      // Update URL without reload
       window.history.pushState({ page }, "", `#${page}`)
     }, 500)
-  }
-
-  // ✅ Fix added here — e typed explicitly
-  const handleBackClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault()
-    router.push("/#about")
   }
 
   const renderPage = () => {

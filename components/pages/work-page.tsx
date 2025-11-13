@@ -6,30 +6,30 @@ export default function WorkPage() {
   // Projects data
   const projectsData = [
     {
-      title: "Sryngar Ecommerce",
-      description: "Ecommerce Application with Dashboard for system analytics.",
-      tags: ["HTML", "CSS", "PHP", "JavaScript"],
+      title: "Quantum Interface",
+      description: "Next-gen UI system with neural network integration and holographic display technology.",
+      tags: ["Three.js", "AI", "WebGL"],
       imageUrl: "/placeholder.svg?height=400&width=600",
       link: "#",
     },
     {
-      title: "SortCut Nepal",
-      description: "Classified web application with multi-layered web apps inside. ",
-      tags: ["PHP", "Laravel", "HTML", "Css", "JavaScript", "Vue.js", "Bootstrap"],
+      title: "Nexus Dashboard",
+      description: "Real-time data visualization platform with 3D analytics and predictive modeling.",
+      tags: ["D3.js", "React", "Node.js"],
       imageUrl: "/placeholder.svg?height=400&width=600",
       link: "#",
     },
     {
-      title: "PUBG Tournament",
-      description: "A Tournament management system build in compatible with OBS Studio.",
-      tags: ["HTML", "CSS", "JavaScript", "PHP", "Laravel", "GSAP"],
+      title: "AR Navigation",
+      description: "Augmented reality wayfinding system for complex indoor environments.",
+      tags: ["ARCore", "Unity", "ARKit"],
       imageUrl: "/placeholder.svg?height=400&width=600",
       link: "#",
     },
     {
-      title: "Bakes N Cakes",
-      description: "A cake shop web application built for customers's feature of buying with unlimited customizations.",
-      tags: ["PHP", "JavaScript", "HTML", "CSS", "Bootstrap"],
+      title: "Neural Network",
+      description: "Machine learning platform for real-time pattern recognition and prediction.",
+      tags: ["Python", "TensorFlow", "Keras"],
       imageUrl: "/placeholder.svg?height=400&width=600",
       link: "#",
     },
@@ -95,10 +95,10 @@ export default function WorkPage() {
                   </motion.span>
                 ))}
               </div>
-              {/* <a href={project.link} className="view-project" target="_blank" rel="noopener noreferrer">
+              <a href={project.link} className="view-project" target="_blank" rel="noopener noreferrer">
                 <span>View Project</span>
                 <ExternalLink size={16} />
-              </a> */}
+              </a>
             </div>
           </motion.div>
         ))}

@@ -34,7 +34,7 @@ export default function Header({ currentPage, navigateTo }: HeaderProps) {
         data-text="NEXUSPORT"
         whileHover={{ scale: 1.05, textShadow: "0 0 8px rgba(0, 168, 255, 0.7)" }}
       >
-        SUMAN THAPA
+        NEXUSPORT
       </motion.div>
 
       <nav className={`desktop-nav ${mobileMenuOpen ? "active" : ""}`}>
