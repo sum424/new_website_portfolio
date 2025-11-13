@@ -28,7 +28,8 @@
     "react-native": "latest",
     "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7",
-    "three": "latest"
+    "three": "latest",
+    "tw-animate-css": "latest"
   },
   "devDependencies": {
     "@types/node": "^22",
@@ -39,7 +40,7 @@
     "eslint": "^9",
     "eslint-config-next": "^16.0.0",
     "postcss": "^8.5",
-    "tailwindcss": "^3.4.17",
+    "tailwindcss": "^4.1.9",
     "typescript": "^5"
   },
   "engines": {
