@@ -23,10 +23,16 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
   const [errorMessage, setErrorMessage] = useState("")
+  const [mounted, setMounted] = useState(false)
 
-  // Initialize EmailJS
   useEffect(() => {
-    emailjs.init("8cCVvLyZS8pIqTYh8")
+    setMounted(true)
+    // Initialize EmailJS with error handling
+    try {
+      emailjs.init("8cCVvLyZS8pIqTYh8")
+    } catch (error) {
+      console.error("EmailJS initialization error:", error)
+    }
   }, [])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -80,20 +86,19 @@ export default function ContactPage() {
       const formattedTime = now.toLocaleString()
       const currentYear = now.getFullYear()
 
-      // Using the direct send method with variables that match your template
       const result = await emailjs.send(
-        "service_xcne9yz", // Your service ID
-        "template_ad01u4v", // Your template ID
+        "service_xcne9yz",
+        "template_ad01u4v",
         {
-          name: formData.name, // Matches your template variable
-          email: formData.email, // For reply-to functionality
+          name: formData.name,
+          email: formData.email,
           subject: formData.subject,
-          message: formData.message, // Matches your template variable
-          time: formattedTime, // Matches your template variable
-          year: currentYear, // Matches your template variable
-          company: "Suman Thapa", // For the footer
+          message: formData.message,
+          time: formattedTime,
+          year: currentYear,
+          company: "Suman Thapa",
         },
-        "8cCVvLyZS8pIqTYh8", // Your public key
+        "8cCVvLyZS8pIqTYh8",
       )
 
       console.log("Email sent successfully:", result)
@@ -125,6 +130,10 @@ export default function ContactPage() {
     } finally {
       setIsSubmitting(false)
     }
+  }
+
+  if (!mounted) {
+    return null
   }
 
   if (isSuccess) {

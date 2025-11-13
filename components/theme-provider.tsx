@@ -32,27 +32,27 @@ export function ThemeProvider({
   const [theme, setTheme] = useState<Theme>(defaultTheme)
   const [mounted, setMounted] = useState(false)
 
-  // Only access localStorage after component has mounted in the browser
   useEffect(() => {
     setMounted(true)
-    const savedTheme = localStorage.getItem(storageKey) as Theme
-    if (savedTheme) {
+    // Only access localStorage after hydration
+    const savedTheme = localStorage.getItem(storageKey) as Theme | null
+    if (savedTheme === "light" || savedTheme === "dark") {
       setTheme(savedTheme)
     }
   }, [storageKey])
 
   useEffect(() => {
-    if (mounted) {
-      const root = window.document.documentElement
-      root.classList.remove("light", "dark")
-      root.classList.add(theme)
-      localStorage.setItem(storageKey, theme)
-    }
+    if (!mounted) return
+
+    const root = window.document.documentElement
+    root.classList.remove("light", "dark")
+    root.classList.add(theme)
+    localStorage.setItem(storageKey, theme)
   }, [theme, storageKey, mounted])
 
   const value = {
     theme,
-    setTheme: (theme: Theme) => setTheme(theme),
+    setTheme: (newTheme: Theme) => setTheme(newTheme),
   }
 
   return (

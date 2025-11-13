@@ -17,9 +17,16 @@ import { ErrorBoundary } from "@/components/error-boundary"
 export default function Portfolio() {
   const [currentPage, setCurrentPage] = useState("home")
   const [isLoading, setIsLoading] = useState(false)
+  const [mounted, setMounted] = useState(false)
   const { theme } = useTheme()
 
   useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  useEffect(() => {
+    if (!mounted) return
+
     // Get page from hash or default to home
     const hash = window.location.hash
     if (hash && hash.length > 1) {
@@ -53,7 +60,7 @@ export default function Portfolio() {
       window.removeEventListener("hashchange", handleHashChange)
       window.removeEventListener("popstate", handlePopState)
     }
-  }, [])
+  }, [mounted])
 
   const navigateTo = (page: string) => {
     setIsLoading(true)
@@ -90,6 +97,10 @@ export default function Portfolio() {
       default:
         return <ErrorPage navigateTo={navigateTo} />
     }
+  }
+
+  if (!mounted) {
+    return null
   }
 
   return (
