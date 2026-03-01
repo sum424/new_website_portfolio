@@ -17,7 +17,7 @@ export default function HomePage() {
             className="display-3 fw-bold mb-4"
             style={{ fontFamily: "Orbitron, monospace", letterSpacing: "2px", color: "#00FF00" }}
           >
-            Welcome to <span style={{ color: "#00a8ff" }}>NexusPort</span>
+            Welcome to <span style={{ color: "#00a8ff" }}><ST /></span>
           </h1>
           <p className="lead mb-5" style={{ fontSize: "1.3rem", color: "#e6f1ff" }}>
             A futuristic portfolio showcasing my skills in web development, 3D graphics, and AI integration. Explore my
